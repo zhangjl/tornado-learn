@@ -1,7 +1,7 @@
 #! /usr/bin/env python
 #! -*- encoding: utf-8 -*-
 import sys
-from datetime import datetime
+from datetime import datetime, timedelta
 
 import base
 
@@ -15,11 +15,14 @@ define('passwd', type = str)
 define('test', type = int, default = 0, help = 'switch: is test')
 define('name', type = str, default = 'zhangjl', help = 'username')
 
-#########################################################################################
+'''
+    python src/options.py -zl=0:2 -dt='2015-02-19 15:00:00' -bl=1 -td='10d 4h'
+'''
 
 define('zl', type = int, default = range(0,2), multiple = True, help = 'range of 0 to 1')
 define('dt', type = datetime, default = datetime.today(), help = 'date time')
 define('bl', type = bool, default = False, help = 'test bool type')
+define('td', type = timedelta, help = 'test time delta')
 
 print tornado.options.parse_command_line()
 
