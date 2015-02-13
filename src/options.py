@@ -1,6 +1,7 @@
 #! /usr/bin/env python
 #! -*- encoding: utf-8 -*-
 import sys
+from datetime import datetime
 
 import base
 
@@ -13,7 +14,12 @@ define('config', type = str, help = 'path to config file',
 define('passwd', type = str)
 define('test', type = int, default = 0, help = 'switch: is test')
 define('name', type = str, default = 'zhangjl', help = 'username')
-define('zl', type = int, default = "0:2", multiple = True, help = 'range of 0 to 1')
+
+#########################################################################################
+
+define('zl', type = int, default = range(0,2), multiple = True, help = 'range of 0 to 1')
+define('dt', type = datetime, default = datetime.today(), help = 'date time')
+define('bl', type = bool, default = False, help = 'test bool type')
 
 print tornado.options.parse_command_line()
 
